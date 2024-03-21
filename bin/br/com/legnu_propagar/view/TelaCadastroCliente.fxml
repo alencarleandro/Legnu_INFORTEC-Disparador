@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" prefHeight="720.0" prefWidth="1280.0" styleClass="anchorPane" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.legnu_propagar.controller.Controller_CadastroCliente">
+   <children>
+      <SplitPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <BorderPane>
+               <center>
+                  <TableView fx:id="tbClientes" onMouseClicked="#setarCampos" BorderPane.alignment="CENTER">
+                   	<columnResizePolicy>
+          				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+       				</columnResizePolicy>
+                    <columns>
+                      <TableColumn fx:id="tbClientes_ID" editable="false" prefWidth="75.0" resizable="false" text="ID" />
+                      <TableColumn fx:id="tbClientes_NOME" editable="false" prefWidth="912.0" text="NOME" />
+                        <TableColumn fx:id="tbClientes_CATEGORIA" editable="false" minWidth="0.0" prefWidth="257.0" text="CATEGORIA" />
+                    </columns>
+                     <BorderPane.margin>
+                        <Insets bottom="16.0" left="16.0" right="16.0" />
+                     </BorderPane.margin>
+                  </TableView>
+               </center>
+               <top>
+                  <AnchorPane maxHeight="30.0" BorderPane.alignment="CENTER_LEFT">
+                     <BorderPane.margin>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="602.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../util/imagens/lupa%20(2).png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <HBox alignment="CENTER" styleClass="modelo_textField">
+                                 <children>
+                                    <TextField fx:id="txtPesquisar" prefHeight="30.0" prefWidth="1920.0" promptText="Buscar Cliente por Nome">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblID" visible="false" />
+                              <ImageView fx:id="btnVoltar" fitHeight="16.0" fitWidth="16.0" onMouseClicked="#voltar" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../util/imagens/menos-do-que-o-simbolo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <bottom>
+                  <AnchorPane BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="16.0" left="16.0" right="16.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <SplitPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <TabPane prefWidth="1244.0">
+                                 <tabs>
+                                    <Tab closable="false" text="Cadastro">
+                                       <content>
+                                          <SplitPane dividerPositions="0.7555732484076433" prefHeight="200.0" prefWidth="200.0">
+                                             <items>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/clientes.png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <HBox alignment="CENTER" styleClass="modelo_textField">
+                                                                     <children>
+                                                                        <TextField fx:id="txtCliente" prefHeight="30.0" prefWidth="1920.0" promptText="Nome do Cliente">
+                                                                           <padding>
+                                                                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                           </padding>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" right="6.0" top="16.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/linhas-de-opcoes%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <ComboBox fx:id="cbCategoria" minWidth="300.0" onMouseClicked="#InstanciarCategoria" prefHeight="30.0" prefWidth="1920.0" promptText="Categoria do Cliente" />
+                                                                  <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#categoria" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="22.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="vazio">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/mais.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/telefone%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <ComboBox fx:id="cbTelefone" minHeight="30.0" minWidth="200.0" onMouseClicked="#InstanciarTelefone" prefHeight="30.0" prefWidth="300.0" promptText="Telefone(s) do Cliente" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#telefone" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                     <graphic>
+                                                                        <ImageView fx:id="btnTrocar" disable="true" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/engrenagem%20(1).png" />
+                                                                           </image>
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" disable="true">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/o-email%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <HBox alignment="CENTER" styleClass="modelo_textField">
+                                                                     <children>
+                                                                        <TextField fx:id="txtSenhaMes2" prefHeight="30.0" prefWidth="1920.0" promptText="Email do Cliente">
+                                                                           <padding>
+                                                                              <Insets left="5.0" right="5.0" />
+                                                                           </padding>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <ImageView fitHeight="27.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/mais.png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/genero.png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <ComboBox minHeight="30.0" minWidth="200.0" prefHeight="30.0" prefWidth="300.0" promptText="Género do Cliente">
+                                                                     <HBox.margin>
+                                                                        <Insets />
+                                                                     </HBox.margin>
+                                                                  </ComboBox>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" right="6.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" disable="true">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/mapas-e-bandeiras%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <HBox alignment="CENTER" minHeight="30.0" styleClass="modelo_textField">
+                                                                     <children>
+                                                                        <TextField fx:id="txtSenhaMes41" disable="true" editable="false" prefHeight="30.0" prefWidth="1920.0" promptText="Endereço do Cliente">
+                                                                           <padding>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </padding>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/engrenagem%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox alignment="CENTER_RIGHT" prefHeight="154.0" prefWidth="216.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciar" text="Adicionar" textFill="WHITE">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="btnEditar" disable="true" mnemonicParsing="false" onAction="#editar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciar" text="Editar" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets top="16.0" />
+                                                               </VBox.margin>
+                                                            </Button>
+                                                            <Button fx:id="btnRemover" disable="true" mnemonicParsing="false" onAction="#remover" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciar" text="Remover" textFill="WHITE">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" top="16.0" />
+                                                               </VBox.margin>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="btnAtualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciar" text="Atualizar" textFill="WHITE">
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </items>
+                                          </SplitPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab closable="false" text="Importar">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                             <children>
+                                                <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <VBox alignment="BOTTOM_CENTER" maxHeight="50.0" BorderPane.alignment="BOTTOM_CENTER">
+                                                         <children>
+                                                            <HBox alignment="CENTER_LEFT">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/abrir-contorno-da-pasta.png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <HBox alignment="CENTER" styleClass="modelo_textField">
+                                                                     <children>
+                                                                        <TextField fx:id="txtCliente_Importar" disable="true" editable="false" prefHeight="30.0" prefWidth="1920.0" promptText="Lista de Clitentes.">
+                                                                           <padding>
+                                                                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                           </padding>
+                                                                        </TextField>
+                                                                        <Button fx:id="btnCaminho_Cliente" mnemonicParsing="false" onMouseClicked="#PegarCaminho" styleClass="buttonFundoTransparente">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../util/imagens/anexar-arquivo.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" right="16.0" top="16.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/linhas-de-opcoes%20(1).png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="6.0" right="6.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                                  <ComboBox fx:id="cbCategoria_Importar" minWidth="300.0" onMouseClicked="#InstanciarCategoriaImportar" prefHeight="30.0" prefWidth="1920.0" promptText="Categoria da importação" />
+                                                                  <Button fx:id="btnCategoria_Importar" maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#categoria" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="22.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="vazio">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/mais.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="16.0" right="16.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </center>
+                                                   <bottom>
+                                                      <Button fx:id="btnImportar" mnemonicParsing="false" onAction="#Importar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciar" text="Importar" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="16.0" top="16.0" />
+                                                         </BorderPane.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </bottom>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </bottom>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

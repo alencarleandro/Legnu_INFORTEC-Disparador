@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="root" blendMode="DIFFERENCE" depthTest="ENABLE" prefHeight="370.0" prefWidth="476.0" style="-fx-background-color: transparent;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.legnu_propagar.controller.TelaIntroduxcaoController">
+	<children>
+		<Rectangle arcHeight="5.0" arcWidth="5.0" height="201.0" layoutX="178.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" width="245.0">
+			<fill>
+				<LinearGradient endX="1.0" endY="1.0">
+					<stops>
+						<Stop>
+							<color>
+								<Color />
+							</color>
+						</Stop>
+						<Stop offset="1.0">
+							<color>
+								<Color red="1.0" green="1.0" blue="1.0" />
+							</color>
+						</Stop>
+					</stops>
+				</LinearGradient>
+			</fill>
+		</Rectangle>
+		<ImageView fitHeight="490.0" fitWidth="600.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<image>
+				<Image url="@../util/imagens/LogoSimplificada%20-%20Legnu%20's%20INFORTEC%20-%201283x921.png" />
+			</image>
+		</ImageView>
+	</children>
+</AnchorPane>

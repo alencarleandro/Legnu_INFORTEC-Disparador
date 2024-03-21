@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="Pane" prefHeight="370.0" prefWidth="476.0"
+	style="-fx-background-color: transparent;" stylesheets="@application.css"
+	xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="br.com.legnu_propagar.view.TelaIntroduxcaoController">
+	<children>
+		<ProgressBar fx:id="pbIntroducao" layoutX="173.0" layoutY="133.0"
+			prefHeight="205.0" prefWidth="215.0" progress="0.01">
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</ProgressBar>
+		<ImageView fitHeight="490.0" fitWidth="600.0" layoutY="14.0"
+			pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image
+					url="@../util/imagens/LogoSimplificada%20-%20Legnu%20's%20INFORTEC%20-%201283x921.png" />
+			</image>
+		</ImageView>
+		<Button fx:id="btnPorcentagem" layoutX="532.0" layoutY="401.0"
+			mnemonicParsing="false" onAction="#makeProgress" text="Button" />
+	</children>
+</AnchorPane>

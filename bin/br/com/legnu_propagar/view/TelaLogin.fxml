@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1280.0" styleClass="gradientePretoAteCinzaParaBaixo" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.legnu_propagar.controller.Controller_Login">
+	<children>
+      <VBox alignment="BOTTOM_CENTER" style="-fx-background-color: black;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane alignment="CENTER" prefHeight="1280.0" prefWidth="1920.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="775.0" minWidth="10.0" prefWidth="664.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="616.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1280.0" prefWidth="1920.0">
+                     <center>
+                  						<ImageView fitHeight="256.0" fitWidth="256.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  							<image>
+                  								<Image url="@../util/imagens/LogoPrata.PNG" />
+                  							</image>
+                  						</ImageView>
+                     </center>
+                  </BorderPane>
+                  <BorderPane GridPane.columnIndex="1">
+                     <center>
+                        <AnchorPane maxHeight="672.0" maxWidth="614.0">
+                           <children>
+                              <VBox alignment="CENTER" spacing="16.0" styleClass="anchorLogin" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                        						<Label alignment="CENTER" contentDisplay="CENTER" minWidth="238.0" text="Bem Vindo" textAlignment="CENTER" textFill="#262626" wrapText="true">
+                        							<font>
+                        								<Font name="Consolas Bold" size="48.0" />
+                        							</font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                        						</Label>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                              						<HBox alignment="CENTER" prefHeight="30.0">
+                              							<children>
+                              								<ImageView fitHeight="22.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                              									<image>
+                              										<Image url="@../util/imagens/Lock.png" />
+                              									</image>
+                              								</ImageView>
+                                                <HBox styleClass="modelo_textField">
+                                                   <children>
+                                    								<TextField fx:id="txtSenhaMes" prefHeight="30.0" prefWidth="374.0" promptText="Senha do mês">
+                                    									<padding>
+                                    										<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    									</padding>
+                                    								</TextField>
+                                                      <VBox>
+                                                         <children>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../util/imagens/ajuda%20(1).png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                              							</children>
+                              						</HBox>
+                              						<Hyperlink fx:id="linkSenha" onAction="#abrirLink" text="Esqueci a Senha do mês e ou não sei a Senha do mês" underline="true" wrapText="true">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Hyperlink>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="64.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                        						<Button fx:id="btnEntrar" contentDisplay="CENTER" mnemonicParsing="false" onAction="#verificar" prefHeight="40.0" prefWidth="250.0" styleClass="buttonLogin" text="ENTRAR" textFill="WHITE">
+                        							<font>
+                        								<Font size="18.0" />
+                        							</font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                        						</Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="18.0" left="32.0" right="64.0" top="64.0" />
+                           </padding>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </GridPane>
+            <AnchorPane>
+               <children>
+      						<Label prefHeight="36.0" prefWidth="92.0" text="Encoded by Legnu Team" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      							<font>
+      								<Font name="Consolas Bold" size="12.0" />
+      							</font>
+      						</Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+	</children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

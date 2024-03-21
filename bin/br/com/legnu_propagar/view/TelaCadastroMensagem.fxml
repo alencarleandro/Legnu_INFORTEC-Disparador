@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" prefHeight="720.0" prefWidth="1280.0" styleClass="anchorPane" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.legnu_propagar.controller.Controller_CadastroMensagem">
+   <children>
+      <SplitPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <BorderPane >
+               <top>
+                  <AnchorPane maxHeight="30.0" BorderPane.alignment="CENTER_LEFT">
+                     <BorderPane.margin>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="602.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../util/imagens/lupa%20(2).png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <HBox alignment="CENTER" styleClass="modelo_textField">
+                                 <children>
+                                    <TextField fx:id="txtPesquisar" prefHeight="30.0" prefWidth="1920.0" promptText="Buscar mensagem por titulo.">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblID" visible="false" />
+                              <ImageView fx:id="btnVoltar" fitHeight="16.0" fitWidth="16.0" onMouseClicked="#voltar" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../util/imagens/menos-do-que-o-simbolo.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <SplitPane dividerPositions="0.5192926045016077" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="16.0" left="16.0" right="16.0" />
+                     </BorderPane.margin>
+                     <items>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="tbMensagens" onMouseClicked="#setarCampos" prefHeight="633.0" prefWidth="568.0" style="-fx-background-radius: 20 0 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                               	<columnResizePolicy>
+                      				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                   				</columnResizePolicy>
+                                <columns>
+                                  <TableColumn fx:id="tbMensagens_ID" editable="false" prefWidth="75.0" resizable="false" text="ID" />
+                                  <TableColumn fx:id="tbMensagens_TITULO" editable="false" prefWidth="231.0" text="TITULO" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <AnchorPane prefHeight="633.0" prefWidth="645.0">
+                                       <children>
+                                          <TabPane minWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <tabs>
+                                                <Tab closable="false" text="Mensagem">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <VBox alignment="TOP_CENTER" prefHeight="231.0" prefWidth="509.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/titulo.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox alignment="CENTER" styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtTitulo" prefHeight="30.0" prefWidth="1920.0" promptText="Titulo da mensagem.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets left="16.0" right="16.0" top="16.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <TextArea fx:id="taConteudo" prefHeight="1280.0" prefWidth="1920.0" promptText="Escreva sua mensagem aqui.">
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                                                     </VBox.margin>
+                                                                  </TextArea>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                                <Tab closable="false" text="Midia">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <top>
+                                                                  <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/imagem.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtMidia" disable="true" editable="false" prefHeight="30.0" prefWidth="1920.0" promptText="Caminho da midia.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarMidia" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="22.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="vazio">
+                                                                                 <image>
+                                                                                    <Image url="@../util/imagens/mais.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                     <BorderPane.margin>
+                                                                        <Insets left="16.0" right="16.0" top="16.0" />
+                                                                     </BorderPane.margin>
+                                                                  </HBox>
+                                                               </top>
+                                                               <center>
+                                                                  <ImageView fx:id="imgMidia" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+                                                                     <image>
+                                                                        <Image url="@../util/imagens/Logo%20-%20Legnu%20's%20INFORTEC%20-%20ORIGINAL.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </center>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                                <Tab closable="false" text="Arquivo">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/abrir-contorno-da-pasta.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtArquivo" disable="true" editable="false" prefHeight="30.0" prefWidth="1920.0" promptText="Caminho do arquivo.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="22.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="vazio">
+                                                                                 <image>
+                                                                                    <Image url="@../util/imagens/mais.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets left="16.0" right="16.0" top="16.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <TextArea fx:id="taConteudoArquivo" prefHeight="1280.0" prefWidth="1920.0" promptText="Mensagem para o arquivo.">
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                                                     </VBox.margin>
+                                                                  </TextArea>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab closable="false" text="Enquete">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/titulo%20(1).png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtTituloEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="Titulo enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-1.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtPrimeiraOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="1º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets top="16.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-2.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtSegundaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="2º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-3.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtTerceiraOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="3º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-4.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtQuartaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="4º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-5.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtQuintaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="5º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-6.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtSextaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="6º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-7.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtSetimaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="7º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-8.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtOitavaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="8º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-9.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtNonaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="9º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../util/imagens/numero-10.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="6.0" right="6.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <HBox styleClass="modelo_textField">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <TextField fx:id="txtDecimaOpcaoEnquete" prefHeight="30.0" prefWidth="1920.0" promptText="10º Opção enquete.">
+                                                                                 <padding>
+                                                                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                                                                 </padding>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onMouseClicked="#PegarArquivo" prefHeight="30.0" prefWidth="26.0" style="-fx-background-color: transparent;" stylesheets="@application.css">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <TitledPane expanded="false" text="Permitir varias respostas.">
+                                                                     <content>
+                                                                        <HBox spacing="8.0">
+                                                                           <children>
+                                                                              <RadioButton fx:id="rbAtivo" mnemonicParsing="false" selected="true" text="Ativo" />
+                                                                              <RadioButton fx:id="rbInativo" mnemonicParsing="false" text="Inativo" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </content>
+                                                                     <VBox.margin>
+                                                                        <Insets left="8.0" right="16.0" />
+                                                                     </VBox.margin>
+                                                                  </TitledPane>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                             </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                                 <bottom>
+                                    <AnchorPane  BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciarVertical" text="Adicionar" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" right="16.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="btnEditar" disable="true" mnemonicParsing="false" onAction="#editar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciarVertical" text="Editar" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" right="16.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="btnRemover" disable="true" mnemonicParsing="false" onAction="#remover" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciarVertical" text="Remover" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" right="16.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="btnAtualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="30.0" prefWidth="300.0" styleClass="buttonGerenciarVertical" text="Atualizar" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="16.0" right="16.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </bottom>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

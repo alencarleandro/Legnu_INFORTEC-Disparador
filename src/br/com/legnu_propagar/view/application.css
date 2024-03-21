@@ -1,0 +1,321 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+/* Padroes */
+
+.text-field{
+	-fx-background-color: transparent;
+	-fx-prompt-text-fill: #656565;
+}
+
+/* customizados */
+
+.modelo_textField{
+	-fx-background-color: white;
+	-fx-background-radius: 3;
+	-fx-border-color: gray;
+	-fx-border-radius: 3;
+}
+
+/*teste */
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #00BCD4;
+}
+
+.jfx-tab-pane .tab-header-area .tab-down-button {
+    -fx-background-color: WHITE;
+    -fx-min-width: 0.8em;
+    -fx-max-width: 0.8em;
+    -fx-min-height: 1.3em;
+    -fx-max-height: 1.3em;
+}
+
+.jfx-tab-pane .tab-header-area .control-buttons-tab .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+.jfx-tab-pane .tab-header-area .tab-down-button:left {
+    -fx-shape: "M 742,-37 90,614 Q 53,651 53,704.5 53,758 90,795 l 652,651 q 37,37 90.5,37 53.5,0 90.5,-37 l 75,-75 q 37,-37 37,-90.5 0,-53.5 -37,-90.5 L 512,704 998,219 q 37,-38 37,-91 0,-53 -37,-90 L 923,-37 Q 886,-74 832.5,-74 779,-74 742,-37 z";
+
+}
+
+.jfx-tab-pane .tab-header-area .tab-down-button:right {
+    -fx-shape: "m 1099,704 q 0,-52 -37,-91 L 410,-38 q -37,-37 -90,-37 -53,0 -90,37 l -76,75 q -37,39 -37,91 0,53 37,90 l 486,486 -486,485 q -37,39 -37,91 0,53 37,90 l 76,75 q 36,38 90,38 54,0 90,-38 l 652,-651 q 37,-37 37,-90 z"
+}
+
+
+.jfx-tab-pane .headers-region > .tab-selected-line{
+    -fx-pref-width: 1px !important;
+    -fx-pref-height: 2px;
+}
+
+.jfx-tab-pane .headers-region > .tab > .jfx-rippler {
+    -jfx-rippler-fill: #FFFF8D;
+}
+
+.jfx-tab-pane .headers-region .tab-selected-line {
+    -fx-background-color: #FFFF8D;
+}
+
+
+.jfx-tab-pane .headers-region .tab:closable {
+    -fx-border-color: rgba(255,255,255, .87);
+    -fx-border-width: 0 2 0 0;
+    -fx-border-style: dotted;
+    -fx-border-insets: 8 0 8 0;
+    -fx-padding: 0 8 0 8;
+}
+
+.jfx-tab-pane .headers-region .tab .tab-container .tab-label {
+    -fx-text-fill: rgba(255,255,255, .87);
+    -fx-font-weight: BOLD;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 16;
+}
+.jfx-tab-pane .headers-region .tab:closable .tab-container .tab-label{
+    -fx-padding: 0 8 0 6;
+}
+
+
+
+.jfx-tab-pane .headers-region .tab:selected .tab-container .tab-label {
+    -fx-text-fill: WHITE;
+}
+
+/*TAB*/
+
+.tab{
+	-fx-pref-height: 25;
+	-fx-background-radius: 0 3 0 0;
+	-fx-border-insets: 10px;
+    -fx-background-insets: 0px;
+}
+
+.tab-header-background{
+    -fx-border-insets: 0px;
+    -fx-background-insets: 0px;
+    -fx-background-color: black;
+}
+
+/* TABLES */
+
+.table-view{
+	-fx-background-radius: 15 15 0 0;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler,
+.table-view .corner,
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-viewReta,
+.table-viewReta .column-header,
+.table-viewReta .column-header-background .filler,
+.table-viewReta .corner,
+.table-viewReta .column-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Botoes */
+
+.buttonFundoTransparente{
+	-fx-background-color : transparent;
+}
+
+.buttonReceber{
+	-fx-background-radius : 0;
+	-fx-background-color : #ffffff;
+}
+
+.buttonDisparar{	
+	-fx-background-radius :  40 0 0 40;
+	-fx-background-color : black;
+}
+
+.buttonDisparar:hover
+{
+	-fx-background-color : #616161;
+}
+
+.buttonDisparar:pressed
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonPadrao{
+	-fx-background-radius :  40 0 0 40;
+	-fx-background-color : #000000;
+}
+
+.buttonPadrao:hover
+{
+	-fx-background-color : #808080;
+}
+
+.buttonPadrao:pressed
+{
+	-fx-background-color : #4c4c4c;
+}
+
+
+.painelInterativo{
+	-fx-background-radius :  40;
+	-fx-background-color :  #dfdfdf;
+}
+
+.painelInterativo:hover
+{
+	-fx-background-color : #808080;
+}
+
+.painelInterativo:pressed
+{
+	-fx-background-color : #4c4c4c;
+}
+
+
+.buttonLogin{
+	-fx-background-radius :  5;
+	-fx-background-color : #000000;
+}
+
+.buttonLogin:hover
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonLogin:pressed
+{
+	-fx-background-color : #393939;
+}
+
+.buttonPrincipal{
+	-fx-background-color: #000000;
+}
+
+.buttonPrincipal:hover
+{
+	-fx-background-color : #262626;
+}
+
+.buttonPrincipal:pressed
+{
+	-fx-background-color : #131313;
+}
+
+.buttonPrincipalSub{
+	-fx-background-color: #393939;
+	-fx-background-radius: 10;
+}
+
+.anchorLogin{
+	-fx-background-radius: 10;	
+    -fx-background-color: #f2f0f2;
+	
+}
+
+.anchorDisparo{
+    -fx-background-color: #f2f0f2;
+	
+}
+
+.anchorCabecalho{
+	-fx-background-radius: 0 0 10 10;	
+	-fx-background-color: #f2f0f2;
+	-fx-padding: 16;
+	-fx-min-height: 60;	
+}
+
+.anchorCabecalhoMenor{
+	-fx-background-radius: 0 0 0 10;	
+	-fx-background-color: #f2f0f2;
+	-fx-padding: 16;
+	-fx-min-height: 60;	
+}
+
+.gradientePretoAteCinzaParaBaixo{
+	-fx-background-color: linear-gradient(to bottom, #040404,#232323,#424242,#616161,#808080);
+}
+
+.anchorPane {
+	/* 
+    -fx-padding: 1px;
+    -fx-border-insets: 0px;
+    -fx-background-insets: 0px;
+    -fx-background-color: black;
+    -fx-border-color: #000000;*/
+}
+
+.closeApp{
+	-fx-fit-to-height: 16.0;
+	-fx-fit-to-width: 16.0; 
+	-fx-fill-height: 16.0;
+	-fx-fill-width: 16.0;
+}
+
+
+.buttonGerenciar{
+	-fx-background-radius :  40 0 0 40;
+	-fx-background-color : #262626;
+}
+
+.buttonGerenciar:hover
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonGerenciar:pressed
+{
+	-fx-background-color : #393939;
+}
+
+
+.buttonGerenciarInvertido{
+	-fx-background-radius :  0 40 40 0;
+	-fx-background-color : #262626;
+}
+
+.buttonGerenciarInvertido:hover
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonGerenciarInvertido:pressed
+{
+	-fx-background-color : #393939;
+}
+
+
+.buttonGerenciarVertical{
+	-fx-background-radius :  20 20 0 0;
+	-fx-background-color : #262626;
+}
+
+.buttonGerenciarVertical:hover
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonGerenciarVertical:pressed
+{
+	-fx-background-color : #393939;
+}
+
+
+.buttonGerenciar2{
+	-fx-background-radius : 40;
+	-fx-background-color : #262626;
+}
+
+.buttonGerenciar2:hover
+{
+	-fx-background-color : #4c4c4c;
+}
+
+.buttonGerenciar2:pressed
+{
+	-fx-background-color : #393939;
+}
+
