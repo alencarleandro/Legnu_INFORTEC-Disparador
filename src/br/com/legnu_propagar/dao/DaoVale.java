@@ -35,8 +35,11 @@ public class DaoVale {
 
 	private static void criarTbVale() {
 		try {
-			ComunicaxcaoUtil.setSql("CREATE TABLE IF NOT EXISTS externo.tbvale(id INT," + "vale VARCHAR(80),"
-					+ "vencimento DATE," + "PRIMARY KEY (id));");
+			ComunicaxcaoUtil.setSql("CREATE TABLE IF NOT EXISTS externo.tbvale(id INT, " 
+																			+ "vale VARCHAR(80), "
+																			+ "vencimento DATE, " 
+																			+ "cont VARCHAR(80), " 
+																			+ "PRIMARY KEY (id));");
 			ComunicaxcaoUtil.prepararConexcao();
 			ComunicaxcaoUtil.executar();
 		} catch (Exception e) {
@@ -67,13 +70,14 @@ public class DaoVale {
 			ComunicaxcaoUtil.setSql("SELECT vencimento FROM externo.tbvale WHERE id = 1");
 			ComunicaxcaoUtil.prepararConexcao();
 			ComunicaxcaoUtil.executarQuery();
-
+			
 			if (ComunicaxcaoUtil.getRs().next()) {
 				if (PegarDatasUtil.eDepois(PegarDatasUtil.getDate(), ComunicaxcaoUtil.getRs().getDate(1))
 						|| PegarDatasUtil.getDate().equals(ComunicaxcaoUtil.getRs().getDate(1))) {
 					vale();
 				}
 			}
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro Checar Data TbVale: " + e);
 		} finally {
@@ -109,7 +113,7 @@ public class DaoVale {
 
 	private static void gerarVale() {
 		try {
-			ComunicaxcaoUtil.setSql("INSERT INTO externo.tbvale (id) VALUES (1);");
+			ComunicaxcaoUtil.setSql("INSERT INTO externo.tbvale (id,cont) VALUES (1,0);");
 			ComunicaxcaoUtil.prepararConexcao();
 			ComunicaxcaoUtil.executar();
 		} catch (Exception e) {
@@ -199,7 +203,10 @@ public class DaoVale {
 
 	private static void vale() {
 		try {
-			ComunicaxcaoUtil.setSql("UPDATE externo.tbvale SET vale=?, vencimento=? WHERE id=1");
+			
+			int cont = PegarCont() + 1;
+			
+			ComunicaxcaoUtil.setSql("UPDATE externo.tbvale SET vale=? ,vencimento=?, cont=?  WHERE id=1");
 			ComunicaxcaoUtil.prepararConexcao();
 			if (index() < 10) {
 				ComunicaxcaoUtil.getPst().setString(1, filtro(String.valueOf(
@@ -212,11 +219,11 @@ public class DaoVale {
 						.valueOf(index() + PegarDatasUtil.getYear() + PegarDatasUtil.mesDuasCasas() + "07" + sigla())));
 			}
 			ComunicaxcaoUtil.getPst().setDate(2, PegarDatasUtil.proximoVale());
+			ComunicaxcaoUtil.getPst().setString(3, String.valueOf(cont));
 			ComunicaxcaoUtil.atualizarQuery();
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Error vale:" + e);
-
 		}
 	}
 
@@ -232,8 +239,25 @@ public class DaoVale {
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Error vale:" + e);
-
 		}
+		
 		return "";
+	}
+	
+	public static Integer PegarCont() {
+		try {
+			ComunicaxcaoUtil.setSql("SELECT cont FROM externo.tbvale WHERE id = 1");
+			ComunicaxcaoUtil.prepararConexcao();
+			ComunicaxcaoUtil.executarQuery();
+
+			while (ComunicaxcaoUtil.getRs().next()) {
+				return Integer.parseInt(ComunicaxcaoUtil.getRs().getString("cont"));
+			}
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Error cont:" + e);
+		}
+		
+		return 0;
 	}
 }

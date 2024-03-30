@@ -55,8 +55,14 @@ public class Main extends Application {
 		DaoRotina.criarSchemaInterno();
 		DaoOcorrencia.criarSchemaInterno();
 
-		// primaryStage.initStyle(StageStyle.TRANSPARENT);
-		setScreen(Tela.LOGIN);
+		if(DaoVale.PegarCont() <= 0) {
+			JOptionPane.showMessageDialog(null, "Disparador com bloqueio, entre em contato com 31 97357-3354");	
+		}else if(DaoVale.PegarCont() == 1){
+			setScreen(Tela.PRINCIPAL);
+		}else {
+			setScreen(Tela.LOGIN);
+		}		
+		
 		primaryStage.getIcons()
 				.add(new Image(getClass().getResource("/br/com/legnu_propagar/util/imagens/LegnuIcon.png").toExternalForm()));
 		primaryStage.show();																				

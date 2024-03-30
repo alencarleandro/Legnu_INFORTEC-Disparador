@@ -51,7 +51,6 @@ public class ComunicaxcaoUtil {
 		try {
 			ComunicaxcaoUtil.setPst(ComunicaxcaoUtil.getConexao().prepareStatement(ComunicaxcaoUtil.getSql()));
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "prepararConexcao UtilComunicacão Error:" + e);
 		}
 	}
 
@@ -59,7 +58,6 @@ public class ComunicaxcaoUtil {
 		try {
 			ComunicaxcaoUtil.getPst().execute();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "executar UtilComunicacão Error:" + e);
 		}
 	}
 
@@ -67,7 +65,6 @@ public class ComunicaxcaoUtil {
 		try {
 			setRs(ComunicaxcaoUtil.getPst().executeQuery());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "executarQuery UtilComunicacão Error:" + e);
 		}
 	}
 
@@ -75,7 +72,6 @@ public class ComunicaxcaoUtil {
 		try {
 			ComunicaxcaoUtil.getPst().executeUpdate();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "atualizarQuery UtilComunicacão Error:" + e);
 		}
 	}
 
