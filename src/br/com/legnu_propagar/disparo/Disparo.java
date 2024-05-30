@@ -228,6 +228,7 @@ public class Disparo {
 				
 					status = br.com.legnu_propagar.disparo.modos.Mensager.iniciarMensager(act, driver, listaClientes.get(i).getNome(),
 							false, listaMensagens, listaClientes.get(i).getId(), DaoRotina.pegarUltimo(), modo, quem, listaClientes.get(i), true);
+					
 					br.com.legnu_propagar.util.Disparo.UltimoEnvio(false, listaClientes.get(i).getId(), DaoRotina.pegarUltimo());			
 					
 					try {
@@ -279,13 +280,11 @@ public class Disparo {
 				
 					status = br.com.legnu_propagar.disparo.modos.Facebook.iniciarFacebook(act, driver, listaGrupos.get(i).getNome(),
 							true, listaMensagens, listaGrupos.get(i).getId(), DaoRotina.pegarUltimo(), modo, quem, listaGrupos.get(i), true);
-					br.com.legnu_propagar.util.Disparo.UltimoEnvio(false, listaGrupos.get(i).getId(), DaoRotina.pegarUltimo());			
 					
-					try {
-						Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
-					} catch (Exception e) {}
+					br.com.legnu_propagar.util.Disparo.UltimoEnvio(false, listaGrupos.get(i).getId(), DaoRotina.pegarUltimo());	
 					
-					if(status.equals(Status.ENVIADO)) {
+					if(br.com.legnu_propagar.disparo.modos.Facebook.iniciarFacebook(act, driver, listaGrupos.get(i).getNome(),
+							true, listaMensagens, listaGrupos.get(i).getId(), DaoRotina.pegarUltimo(), modo, quem, listaGrupos.get(i), true).equals(Status.ENVIADO)) {
 						DaoRotina.editarRotina(DaoRotina.pegarUltimo().getId(), (DaoRotina.pegarUltimo().getRotina()+"\n E@§ Envio com Sucesso!"));		
 					}else if(status.equals(Status.FALHOU)){
 						DaoRotina.editarRotina(DaoRotina.pegarUltimo().getId(), (DaoRotina.pegarUltimo().getRotina()+"\n F@§ Envio Falhou!\n\n"));	
@@ -294,6 +293,13 @@ public class Disparo {
 						DaoRotina.editarRotina(DaoRotina.pegarUltimo().getId(), (DaoRotina.pegarUltimo().getRotina()+"\n N@§ Não Encotrado."));	
 						listaPendentesGrupos.add(listaGrupos.get(i));
 					}
+					
+					driver.get("https://www.facebook.com/groups/");
+					
+					try {
+						Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
+					} catch (Exception e) {}
+
 				}
 				
 				for (int i = 0; i < listaPendentesGrupos.size(); i++) {					
@@ -302,12 +308,9 @@ public class Disparo {
 				
 					status = br.com.legnu_propagar.disparo.modos.Facebook.iniciarFacebook(act, driver, listaPendentesGrupos.get(i).getNome(),
 							false, listaMensagens, listaPendentesGrupos.get(i).getId(), DaoRotina.pegarUltimo(), modo, quem, listaPendentesGrupos.get(i), false);
+					
 					br.com.legnu_propagar.util.Disparo.UltimoEnvio(false, listaPendentesGrupos.get(i).getId(), DaoRotina.pegarUltimo());			
-					
-					try {
-						Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
-					} catch (Exception e) {}
-					
+										
 					if(status.equals(Status.ENVIADO)) {
 						DaoRotina.editarRotina(DaoRotina.pegarUltimo().getId(), (DaoRotina.pegarUltimo().getRotina()+"\n E@§ Envio repetido com Sucesso!"));	
 					}else if(status.equals(Status.FALHOU)){
@@ -319,7 +322,14 @@ public class Disparo {
 					if(!(status.equals(Status.ENVIADO))) {
 						DaoOcorrencia.inserirOcorrencia(listaPendentesGrupos.get(i).getId(), "Grupo", listaPendentesGrupos.get(i).getNome());
 					}
+					
+					driver.get("https://www.facebook.com/groups/");
+					
+					try {
+						Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
+					} catch (Exception e) {}
 				}
+				
 			}
 		
 		/*

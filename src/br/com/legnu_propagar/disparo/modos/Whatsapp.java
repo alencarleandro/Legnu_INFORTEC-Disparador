@@ -91,7 +91,7 @@ public class Whatsapp {
 		}
 		
 		return true;
-	}
+	}	
 	
 	public static boolean escritaPesquisa(Actions act, WebDriver driver,String nome, boolean grupo, List<Mensagens> m, 
 			Integer id, Rotina_de_Disparo ID_Rotina, Modo modo,	Quem quem, Clientes cliente, Grupos group, boolean primeiro) {
@@ -100,10 +100,19 @@ public class Whatsapp {
 			Thread.sleep(3000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript(
-					"document.querySelector('[title=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"
-							+ nome + "';");
-			js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
+			
+			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Caixa de texto de pesquisa']")) {
+				js.executeScript(
+						"document.querySelector('[title=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"
+								+ nome + "';");
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
+				
+			} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Caixa de texto de pesquisa']")) {
+				js.executeScript(
+						"document.querySelector('[aria-label=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"
+								+ nome + "';");
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
+			} 
 
 			Thread.sleep(3000);
 		} catch (Exception e) {
@@ -175,16 +184,9 @@ public class Whatsapp {
 	public static void caixaDePesquisa(WebDriver driver) throws InterruptedException {			
 			Thread.sleep(3000);
 
-			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Caixa de texto de pesquisa']")) {
+			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Caixa de texto de pesquisa']")) {
 				if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-						driver.findElement(By.cssSelector("div[title='Caixa de texto de pesquisa']"))
-								.findElement(By.xpath("parent::*[1]")).findElement(By.xpath("parent::*[1]"))
-								.findElement(By.xpath("parent::*[1]")))) {
-				}
-			} else if (br.com.legnu_propagar.util.Disparo.existe(driver,
-					"button[aria-label=\"Pesquisar ou começar uma nova conversa\"]")) {
-				if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, driver
-						.findElement(By.cssSelector("button[aria-label='Pesquisar ou começar uma nova conversa']")))) {
+						driver.findElement(By.cssSelector("div[aria-label='Caixa de texto de pesquisa']")))) {
 				}
 			}
 

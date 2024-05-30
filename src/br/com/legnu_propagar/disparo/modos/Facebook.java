@@ -86,10 +86,7 @@ public class Facebook {
 
 			Thread.sleep(5000);
 
-			if (certo) {
-				br.com.legnu_propagar.util.Disparo.UltimoEnvio(grupo, id, ID_Rotina);
-				br.com.legnu_propagar.disparo.util.envio.facebook(driver, m, act, ID_Rotina, modo, quem);
-			} else {
+			if (!certo) {
 				return false;
 			}
 
