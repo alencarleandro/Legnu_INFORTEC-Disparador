@@ -1,0 +1,57 @@
+1705938892943	Move file
+1705938920425	Rename resource 'application.css'
+1705939947569	Delete element
+1705939959100	Rename resource 'ButtonTelaPrincipal.css'
+1705951666218	Copy file
+1705954870043	Copy file
+1706019155754	Move file
+1706019167649	Delete element
+1706021604493	Copy compilation unit
+1706037414786	Rename type 'tbEndereco'
+1706038097807	Copy file
+1706106961799	Copy compilation unit
+1706131299975	Rename method 'changeScreen'
+1706197017748	Delete element
+1706197109499	Rename enum constant 'CLIENTE'
+1706283054111	Copy file
+1706287004717	Copy file
+1706373398754	Move compilation unit
+1706373408974	Copy compilation units
+1706373414921	Delete element
+1706373480107	Rename type 'TbCategoria'
+1706373486129	Rename type 'TbClientes'
+1706373499953	Rename type 'TbConfiguracao'
+1706373509117	Rename type 'TbEmail'
+1706373514764	Rename type 'TbEndereco'
+1706373522377	Rename type 'TbGrupos'
+1706373531469	Rename type 'TbMensagens'
+1706373537909	Rename type 'TbOcorrencia'
+1706373545557	Rename type 'TbProfiles'
+1706373551309	Rename type 'TbRelaxcaoCliente_Categoria'
+1706373559741	Rename type 'TbRelaxcaoGrupo_Categoria'
+1706373567950	Delete element
+1706373571933	Delete element
+1706373583048	Rename type 'TbTelefone'
+1706373592260	Rename type 'TbVale'
+1706374070083	Rename type 'TbCategoria'
+1706374078881	Rename type 'TbClientes'
+1706374086652	Rename type 'TbConfiguracao'
+1706374097268	Rename type 'TbEmail'
+1706374104338	Rename type 'TbEndereco'
+1706374112363	Rename type 'TbGrupos'
+1706374119376	Rename type 'TbMensagens'
+1706374126376	Rename type 'TbOcorrencia'
+1706374133210	Rename type 'TbProfiles'
+1706374140786	Rename type 'TbRelaxcaoCliente_Categoria'
+1706374147647	Rename type 'TbRelaxcaoGrupo_Categoria'
+1706374154296	Rename type 'TbTelefone'
+1706374160605	Rename type 'TbVale'
+1706374189060	Rename type 'TelaCadastroClienteController'
+1706374207235	Rename type 'TelaCategoriaController'
+1706374231825	Rename type 'TelaIntroduxcaoController'
+1706374247613	Rename type 'TelaLoginController'
+1706374271124	Rename type 'TelaPrincipalController'
+1706374287956	Rename type 'TelaTelefoneController'
+1706374495059	Delete element
+1706381496429	Rename method 'alertaAdicionarVazio'
+1706381531833	Rename method 'alertaAdicionar'

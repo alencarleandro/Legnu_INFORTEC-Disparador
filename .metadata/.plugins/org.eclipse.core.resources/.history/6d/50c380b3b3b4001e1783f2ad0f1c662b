@@ -1,0 +1,26 @@
+package br.com.legnu_propagar.view;
+
+import java.util.concurrent.TimeUnit;
+
+import javax.management.monitor.Monitor;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.paint.Color;
+
+//br.com.legnu_propagar.view.TelaIntroduxcaoController
+
+public class TelaIntroduxcaoController {
+
+	@FXML
+	private ProgressBar pbIntroducao;
+
+	@FXML
+	void makeProgress(ActionEvent event) {
+		pbIntroducao.setProgress(pbIntroducao.getProgress() + 0.2);
+		TimeUnit.MILLISECONDS.sleep(1000);
+		pbIntroducao.setProgress(pbIntroducao.getProgress() + 0.7);
+    }	
+}

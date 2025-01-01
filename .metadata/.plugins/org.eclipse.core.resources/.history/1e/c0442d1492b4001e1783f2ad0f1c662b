@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+
+
+      <ImageView fitHeight="490.0" fitWidth="600.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../util/imagens/LogoSimplificada%20-%20Legnu%20's%20INFORTEC%20-%201283x921.png" />
+         </image>
+      </ImageView>

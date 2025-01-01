@@ -1,0 +1,34 @@
+package br.com.legnu_propagar.disparo.modos;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import br.com.legnu_propagar.disparo.Disparo.Modo;
+import br.com.legnu_propagar.disparo.Disparo.Quem;
+import br.com.legnu_propagar.model.Clientes;
+import br.com.legnu_propagar.model.Mensagens;
+import br.com.legnu_propagar.model.Rotina_de_Disparo;
+
+public class Gmail {
+	public static br.com.legnu_propagar.disparo.Disparo.Status iniciarGmail(Actions act, WebDriver driver, String nome, boolean grupo, List<Mensagens> m,
+			Integer id, Rotina_de_Disparo ID_Rotina, Modo modo, Quem quem, Clientes cliente, boolean primeiro) {
+		
+		
+			if(iniciaPesquisar(act, driver, nome, grupo, m, id, ID_Rotina, modo, quem, cliente, primeiro)) {					
+				if(br.com.legnu_propagar.disparo.util.envio.instagram(driver, m, act, ID_Rotina, modo, quem)) {
+				}else{return br.com.legnu_propagar.disparo.Disparo.Status.FALHOU;}	
+			} else {return br.com.legnu_propagar.disparo.Disparo.Status.NAO_ACHOU;}		
+		return br.com.legnu_propagar.disparo.Disparo.Status.ENVIADO;
+		
+	}
+
+	public static boolean iniciaPesquisar(Actions act, WebDriver driver, String nome, boolean grupo, List<Mensagens> m,
+			Integer id, Rotina_de_Disparo ID_Rotina, Modo modo, Quem quem, Clientes cliente, boolean primeiro) {
+		
+		
+		
+		return true;
+	}
+}

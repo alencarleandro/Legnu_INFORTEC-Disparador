@@ -1,0 +1,37 @@
+package br.com.legnu_propagar.view;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+
+//br.com.legnu_propagar.controller.TelaIntroduxcaoController
+
+public class TelaIntroduxcaoController {
+	
+	@FXML
+	private ProgressBar pbIntroducao;
+	
+	
+	@FXML
+	void makeProgress(ActionEvent event) {
+		progress(pbIntroducao);
+		
+	}
+	
+	private void progress(ProgressIndicator p) {
+		double value = p.getProgress();
+		if(value < 0) {
+			value = 0.01;
+		}else {
+			value = value = 0.5;
+			if(value >= 1.0) {
+				value = 1.0;
+			}
+		}
+		p.setProgress(value);
+		
+	}
+
+
+}

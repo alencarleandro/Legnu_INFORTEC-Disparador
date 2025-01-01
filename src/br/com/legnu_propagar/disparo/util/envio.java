@@ -24,256 +24,262 @@ public class envio {
 	public static boolean whatsapp(WebDriver driver, List<Mensagens> m, Actions act, Rotina_de_Disparo ID_Rotina,
 			Modo modo, Quem quem) {
 		try {
-			
-			 if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[data-animate-modal-popup='true']")) {
-                 driver.findElement(By.cssSelector("button")).click();
-             }
-			
-				for (int i = 0; i < m.size(); i++) {
 
-					if (!m.get(i).getMidia().isEmpty()) {
+			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[data-animate-modal-popup='true']")) {
+				driver.findElement(By.cssSelector("button")).click();
+			}
 
-						// Achou pegou - Anexo 
-						Thread.sleep(2000);
+			for (int i = 0; i < m.size(); i++) {
 
-						if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
+				if (!m.get(i).getMidia().isEmpty()) {
 
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
+					// Achou pegou - Anexo
+					Thread.sleep(2000);
 
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
 
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
-																												
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						}
-
-						// Achou mandou - Anexo 
-
-						Thread.sleep(2000);
-
-						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver,
-									"input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")) {
-								driver.findElement(
-										By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']"))
-										.sendKeys(m.get(i).getMidia());
-								break;
-							}
-							Thread.sleep(1);
-						}
-
-						// Achou Clickou - Mensagem 
-						
-						Thread.sleep(12000);
-						
-						List<WebElement> lista = new ArrayList<WebElement>();
-						
-						lista = driver.findElements(By.cssSelector("div[title='Digite uma mensagem']"));
-						
-						lista.get(0).click();
-						
-						// Achou Mandou - Mensagem 
-
-						Thread.sleep(6000);
-						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act);
-
-						// Enviou - Mensagem_Com_Midia 
-
-						Thread.sleep(8000);
-						
-						if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-							driver.findElement(By.cssSelector("span[data-icon='send']")))) {
-						}
-
-					} else {
-
-						// Achou Clickou - Mensagem 
-
-						Thread.sleep(4000);
-
-						driver.findElement(By.cssSelector("div[title='Digite uma mensagem']")).click();
-
-						// Achou Mandou - Mensagem 
-
-						Thread.sleep(2000);
-						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act);
-
-						Thread.sleep(8000);
-						
-						act.sendKeys(Keys.ENTER).perform();
-
-					}
-
-					if (!m.get(i).getArquivo().isBlank()) {
-
-						// Achou pegou - Anexo 
-
-						Thread.sleep(2000);
-
-						if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						}
-
-						// Achou mandou - Anexo 
-
-						Thread.sleep(2000);
-
-						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver,
-									"input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")) {
-								driver.findElement(
-										By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']"))
-										.sendKeys(m.get(i).getArquivo());
-								break;
-							}
-							Thread.sleep(1);
-						}
-
-						// Achou Clickou - Mensagem 
-
-						List<WebElement> lista = null;
-
-						Thread.sleep(2000);
-
-						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Digite uma mensagem']")) {
-								lista = driver.findElements(By.cssSelector("div[title='Digite uma mensagem']"));
-								break;
-							}
-							Thread.sleep(1);
-						}
-
-						Thread.sleep(2000);
-
-						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver, lista.get(o))) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(o))) {
-									break;
-								}
-							}
-							Thread.sleep(1);
-						}
-
-						// Achou Mandou - Mensagem 
-
-						Thread.sleep(2000);
-						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoArquivo(), act);
-
-						// Enviou - Mensagem_Com_Arquivo 
-
-						Thread.sleep(2000);
 						for (int o = 0; o < 8000; o++) {
 							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-									driver.findElement(By.cssSelector("span[data-icon='send']")))) {
+									driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='Anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='Anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='Clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='Clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='Attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='Attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[aria-label='attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("button[aria-label='attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					}
+					
+
+					// Achou mandou - Anexo
+
+					Thread.sleep(2000);
+
+					for (int o = 0; o < 8000; o++) {
+						if (br.com.legnu_propagar.util.Disparo.existe(driver,
+								"input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")) {
+							driver.findElement(
+									By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']"))
+									.sendKeys(m.get(i).getMidia());
+							break;
+						}
+						Thread.sleep(1);
+					}
+
+					// Achou Clickou - Mensagem
+
+					Thread.sleep(12000);
+
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Digite uma mensagem']")) {
+						driver.findElement(By.cssSelector("div[title='Digite uma mensagem']")).click();
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label=\"Adicione uma legenda\"]")) {
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicione uma legenda\"]")).click();
+					}
+
+					// Achou Mandou - Mensagem
+
+					Thread.sleep(6000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act);
+
+					// Enviou - Mensagem_Com_Midia
+
+					Thread.sleep(8000);
+
+					if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+							driver.findElement(By.cssSelector("span[data-icon='send']")))) {
+					}
+
+				} else {
+
+					// Achou Clickou - Mensagem
+
+					Thread.sleep(4000);
+
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Digite uma mensagem']")) {
+						driver.findElement(By.cssSelector("div[title='Digite uma mensagem']")).click();
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label=\"Adicione uma legenda\"]")) {
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicione uma legenda\"]")).click();
+					}
+					// Achou Mandou - Mensagem
+
+					Thread.sleep(2000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act);
+
+					Thread.sleep(8000);
+
+					act.sendKeys(Keys.ENTER).perform();
+
+				}
+
+				if (!m.get(i).getArquivo().isBlank()) {
+
+					// Achou pegou - Anexo
+
+					Thread.sleep(2000);
+
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
 								break;
 							}
 							Thread.sleep(1);
@@ -281,382 +287,431 @@ public class envio {
 
 					}
 
-					// Enquete 
+					// Achou mandou - Anexo
 
-					if (!m.get(i).getTituloEnquete().isBlank() && !m.get(i).getConteudoEnquete_1().isBlank()
-							&& !m.get(i).getConteudoEnquete_2().isBlank()) {
+					Thread.sleep(2000);
 
-						// Achou pegou - Anexo 
-
-						Thread.sleep(2000);
-
-						if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-						} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-										driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
+					for (int o = 0; o < 8000; o++) {
+						if (br.com.legnu_propagar.util.Disparo.existe(driver,
+								"input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")) {
+							driver.findElement(
+									By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']"))
+									.sendKeys(m.get(i).getArquivo());
+							break;
 						}
+						Thread.sleep(1);
+					}
 
-						// Achou Clickou - Enquete 
+					// Achou Clickou - Mensagem
 
-						List<WebElement> lista = null;
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Digite uma mensagem']")) {
+						driver.findElement(By.cssSelector("div[title='Digite uma mensagem']")).click();
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label=\"Adicione uma legenda\"]")) {
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicione uma legenda\"]")).click();
+					}
 
-						Thread.sleep(2000);
+					// Achou Mandou - Mensagem
+
+					Thread.sleep(2000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoArquivo(), act);
+
+					// Enviou - Mensagem_Com_Arquivo
+
+					Thread.sleep(2000);
+					for (int o = 0; o < 8000; o++) {
+						if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+								driver.findElement(By.cssSelector("span[data-icon='send']")))) {
+							break;
+						}
+						Thread.sleep(1);
+					}
+
+				}
+
+				// Enquete
+
+				if (!m.get(i).getTituloEnquete().isBlank() && !m.get(i).getConteudoEnquete_1().isBlank()
+						&& !m.get(i).getConteudoEnquete_2().isBlank()) {
+
+					// Achou pegou - Anexo
+
+					Thread.sleep(2000);
+
+					if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Anexar']")) {
 
 						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver, "li")) {
-								lista = driver.findElements(By.cssSelector("li"));
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Anexar']")))) {
 								break;
 							}
 							Thread.sleep(1);
 						}
 
-						Thread.sleep(2000);
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Clip']")) {
 
 						for (int o = 0; o < 8000; o++) {
-							if (br.com.legnu_propagar.util.Disparo.existe(driver, lista.get(o))
-									&& lista.get(o).getText().equals("Enquete")) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(o))) {
-									break;
-								}
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Clip']")))) {
+								break;
 							}
 							Thread.sleep(1);
 						}
 
-						// Achou Clickou_Escreveu - Campo 
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Attach']")) {
 
-						if (br.com.legnu_propagar.util.Disparo.existe(driver,
-								"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='Attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
 
-							List<WebElement> opcoes = driver
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='anexar']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='anexar']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='clip']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='clip']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='attach']")) {
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+									driver.findElement(By.cssSelector("div[aria-label='attach']")))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+					}
+
+					// Achou Clickou - Enquete
+
+					List<WebElement> lista = null;
+
+					Thread.sleep(2000);
+
+					for (int o = 0; o < 8000; o++) {
+						if (br.com.legnu_propagar.util.Disparo.existe(driver, "li")) {
+							lista = driver.findElements(By.cssSelector("li"));
+							break;
+						}
+						Thread.sleep(1);
+					}
+
+					Thread.sleep(2000);
+
+					for (int o = 0; o < 8000; o++) {
+						if (br.com.legnu_propagar.util.Disparo.existe(driver, lista.get(o))
+								&& lista.get(o).getText().equals("Enquete")) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(o))) {
+								break;
+							}
+						}
+						Thread.sleep(1);
+					}
+
+					// Achou Clickou_Escreveu - Campo
+
+					if (br.com.legnu_propagar.util.Disparo.existe(driver,
+							"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+
+						List<WebElement> opcoes = driver
+								.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+
+						Thread.sleep(2000);
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(0))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getTituloEnquete(), act);
+						Thread.sleep(2000);
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(1))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_1(), act);
+						Thread.sleep(2000);
+
+						for (int o = 0; o < 8000; o++) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(2))) {
+								break;
+							}
+							Thread.sleep(1);
+						}
+
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_2(), act);
+
+						if (((!m.get(i).getConteudoEnquete_3().isEmpty() || !m.get(i).getConteudoEnquete_3().isBlank())
+								&& (opcoes.size() >= 3))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+
+							opcoes = driver
 									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
 
 							Thread.sleep(2000);
 
 							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(0))) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(3))) {
 									break;
 								}
 								Thread.sleep(1);
 							}
 
-							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getTituloEnquete(), act);
-							Thread.sleep(2000);
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(1))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_1(), act);
-							Thread.sleep(2000);
-
-							for (int o = 0; o < 8000; o++) {
-								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(2))) {
-									break;
-								}
-								Thread.sleep(1);
-							}
-
-							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_2(), act);
-
-							if (((!m.get(i).getConteudoEnquete_3().isEmpty()
-									|| !m.get(i).getConteudoEnquete_3().isBlank()) && (opcoes.size() >= 3))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(3))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_3(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_4().isEmpty()
-									|| !m.get(i).getConteudoEnquete_4().isBlank()) && (opcoes.size() >= 4))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(4))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_4(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_5().isEmpty()
-									|| !m.get(i).getConteudoEnquete_5().isBlank()) && (opcoes.size() >= 5))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(5))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_5(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_6().isEmpty()
-									|| !m.get(i).getConteudoEnquete_6().isBlank()) && (opcoes.size() >= 6))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(6))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_6(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_7().isEmpty()
-									|| !m.get(i).getConteudoEnquete_7().isBlank()) && (opcoes.size() >= 7))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(7))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_7(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_8().isEmpty()
-									|| !m.get(i).getConteudoEnquete_8().isBlank()) && (opcoes.size() >= 8))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(8))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_8(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_9().isEmpty()
-									|| !m.get(i).getConteudoEnquete_9().isBlank()) && (opcoes.size() >= 9))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(9))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_9(), act);
-							}
-
-							if (((!m.get(i).getConteudoEnquete_10().isEmpty()
-									|| !m.get(i).getConteudoEnquete_10().isBlank()) && (opcoes.size() >= 10))
-									&& br.com.legnu_propagar.util.Disparo.existe(driver,
-											"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
-								opcoes = driver.findElements(
-										By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(10))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_10(), act);
-							}
-
-							if (m.get(i).isVariasRespostas()) {
-
-							} else {
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-											driver.findElement(By.cssSelector(
-													"input[aria-label='Ativar ou desativar configurações']"))
-													.findElement(By.xpath("parent::*[1]")))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-							}
-
-							Thread.sleep(8000);
-							
-							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-								driver.findElement(By.cssSelector("span[data-icon='send']")))) {
-							}
-
-							Thread.sleep(8000);
-
-							if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[title='Mostrar votos']")) {
-
-								List<WebElement> mens = driver
-										.findElements(By.cssSelector("button[title='Mostrar votos']"));
-
-								Robot robot = new Robot();
-								robot.mouseMove(
-										mens.get(mens.size() - 1).findElement(By.xpath("child::*[1]")).getLocation().x,
-										mens.get(mens.size() - 1).findElement(By.xpath("child::*[1]")).getLocation().y);
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-											driver.findElement(By.cssSelector("div[aria-label='Menu de contexto']")))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-											driver.findElement(By.cssSelector("div[aria-label='Editar etiqueta']")))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-											driver.findElement(By.cssSelector("button[title='Etiquetar itens']")))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								Thread.sleep(2000);
-
-								for (int o = 0; o < 8000; o++) {
-									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
-											driver.findElement(By.cssSelector("span[title='ENQUETES']")))) {
-										break;
-									}
-									Thread.sleep(1);
-								}
-
-								mens = driver.findElements(By.cssSelector("button"));
-
-								for (int o = 0; o < mens.size(); o++) {
-									if (mens.get(o).getText().equals("Salvar")) {
-										if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, mens.get(o))) {
-											break;
-										}
-									}
-								}
-							}
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_3(), act);
 						}
-					}																				
-				}
 
-		} catch (Exception e) {	
+						if (((!m.get(i).getConteudoEnquete_4().isEmpty() || !m.get(i).getConteudoEnquete_4().isBlank())
+								&& (opcoes.size() >= 4))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(4))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_4(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_5().isEmpty() || !m.get(i).getConteudoEnquete_5().isBlank())
+								&& (opcoes.size() >= 5))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(5))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_5(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_6().isEmpty() || !m.get(i).getConteudoEnquete_6().isBlank())
+								&& (opcoes.size() >= 6))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(6))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_6(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_7().isEmpty() || !m.get(i).getConteudoEnquete_7().isBlank())
+								&& (opcoes.size() >= 7))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(7))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_7(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_8().isEmpty() || !m.get(i).getConteudoEnquete_8().isBlank())
+								&& (opcoes.size() >= 8))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(8))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_8(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_9().isEmpty() || !m.get(i).getConteudoEnquete_9().isBlank())
+								&& (opcoes.size() >= 9))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(9))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_9(), act);
+						}
+
+						if (((!m.get(i).getConteudoEnquete_10().isEmpty()
+								|| !m.get(i).getConteudoEnquete_10().isBlank()) && (opcoes.size() >= 10))
+								&& br.com.legnu_propagar.util.Disparo.existe(driver,
+										"[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, opcoes.get(10))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoEnquete_10(), act);
+						}
+
+						if (m.get(i).isVariasRespostas()) {
+
+						} else {
+
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(
+												By.cssSelector("input[aria-label='Ativar ou desativar configurações']"))
+												.findElement(By.xpath("parent::*[1]")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+						}
+
+						Thread.sleep(8000);
+
+						if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+								driver.findElement(By.cssSelector("span[data-icon='send']")))) {
+						}
+
+						Thread.sleep(8000);
+
+						if (br.com.legnu_propagar.util.Disparo.existe(driver, "button[title='Mostrar votos']")) {
+
+							List<WebElement> mens = driver
+									.findElements(By.cssSelector("button[title='Mostrar votos']"));
+
+							Robot robot = new Robot();
+							robot.mouseMove(
+									mens.get(mens.size() - 1).findElement(By.xpath("child::*[1]")).getLocation().x,
+									mens.get(mens.size() - 1).findElement(By.xpath("child::*[1]")).getLocation().y);
+
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(By.cssSelector("div[aria-label='Menu de contexto']")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							Thread.sleep(2000);
+							
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(By.cssSelector("div[aria-label='Favoritar']")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							/*for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(By.cssSelector("div[aria-label='Editar etiqueta']")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(By.cssSelector("button[title='Etiquetar itens']")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							Thread.sleep(2000);
+
+							for (int o = 0; o < 8000; o++) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+										driver.findElement(By.cssSelector("span[title='ENQUETES']")))) {
+									break;
+								}
+								Thread.sleep(1);
+							}
+
+							mens = driver.findElements(By.cssSelector("button"));
+
+							for (int o = 0; o < mens.size(); o++) {
+								if (mens.get(o).getText().equals("Salvar")) {
+									if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, mens.get(o))) {
+										break;
+									}
+								}
+							}*/
+						}
+					}
+				}
+			}
+
+		} catch (Exception e) {
 			return false;
-		}	
-		
+		}
+
 		return true;
 	}
 
@@ -738,81 +793,217 @@ public class envio {
 			}
 
 			driver.get("https://www.facebook.com/messages/");
-			
+
 			Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
 
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 		return true;
-		
+
 	}
 
 	public static boolean facebook(WebDriver driver, List<Mensagens> m, Actions act, Rotina_de_Disparo ID_Rotina,
 			Modo modo, Quem quem) {
-
-		boolean certo = false;
-
 		try {
+
+			List<WebElement> lista;
 
 			for (int o = 0; o < m.size(); o++) {
 
-				List<WebElement> lista = driver.findElements(By.cssSelector("div[role='button']"));
+				if (!m.get(o).getConteudo().isEmpty() || !m.get(o).getMidia().isEmpty()) {
 
-				for (int i = 0; i < lista.size(); i++) {
-					if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
-							&& (lista.get(i).getText().equals("Escreva algo...")
-									|| lista.get(i).getText().equals("Crie uma publicação aberta…"))) {
-						if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
-							certo = true;
+					lista = driver.findElements(By.cssSelector("div[role='button']"));
 
-							i = 100000000;
+					for (int i = (lista.size() - 1); i >= 0; i--) {
+						if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
+								&& (lista.get(i).getText().equals("Escreva algo...")
+										|| lista.get(i).getText().equals("Crie uma publicação aberta…"))) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+								break;
+							}
 						}
 					}
-				}
 
-				Thread.sleep(5000);
-
-				lista = driver.findElements(By.cssSelector("div[role='presentation']"));
-
-				for (int i = 0; i < lista.size(); i++) {
-					if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
-							&& (lista.get(i).getText().equals("Escreva algo...")
-									|| lista.get(i).getText().equals("Crie uma publicação aberta…"))) {
-						if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
-							certo = true;
-
-							i = 100000000;
-						}
-					}
-				}
-
-				Thread.sleep(5000);
-				br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudo(), act, "");
-
-				Thread.sleep(5000);
-
-				if (!m.get(o).getMidia().isEmpty()) {
-					if (!br.com.legnu_propagar.util.Disparo.existe(driver,
-							"input[accept=\"image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv\"]")) {
-						driver.findElement(By.cssSelector("div[aria-label=\"Foto/vídeo\"]")).click();
-					}
-
-					driver.findElement(By.cssSelector(
-							"input[accept=\"image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv\"]"))
-							.sendKeys(m.get(o).getMidia());
 					Thread.sleep(5000);
+
+					lista = driver.findElements(By.cssSelector("div[role='presentation']"));
+
+					for (int i = (lista.size() - 1); i >= 0; i--) {
+						if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
+								&& (lista.get(i).getText().equals("Escreva algo...")
+										|| lista.get(i).getText().equals("Crie uma publicação aberta…"))) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+								break;
+							}
+						}
+					}
+
+					Thread.sleep(5000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudo(), act, "");
+
+					Thread.sleep(5000);
+
+					if (!m.get(o).getMidia().isEmpty()) {
+						if (!br.com.legnu_propagar.util.Disparo.existe(driver,
+								"input[accept=\"image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv\"]")) {
+							driver.findElement(By.cssSelector("div[aria-label=\"Foto/vídeo\"]")).click();
+						}
+
+						driver.findElement(By.cssSelector(
+								"input[accept=\"image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv\"]"))
+								.sendKeys(m.get(o).getMidia());
+						Thread.sleep(5000);
+					}
+
+					driver.findElement(By.cssSelector("div[aria-label='Publicar']")).click();
+
+					Thread.sleep(20000);
 				}
 
-				lista = driver.findElements(By.cssSelector("div[aria-label='Publicar']"));
-				lista.get(lista.size() - 1).click();
+				if (!m.get(o).getTituloEnquete().isEmpty() && !m.get(o).getConteudoEnquete_1().isEmpty()
+						&& !m.get(o).getConteudoEnquete_2().isEmpty()) {
+					lista = driver.findElements(By.cssSelector("span"));
 
-				Thread.sleep(10000);
+					for (int i = (lista.size() - 1); i >= 0; i--) {
+						if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
+								&& (lista.get(i).getText().equals("Enquete"))) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+								break;
+							}
+						}
+					}
+					Thread.sleep(5000);
 
-				driver.get("https://www.facebook.com/groups/");
+					lista = driver.findElements(By.cssSelector("div[role='presentation']"));
 
-				Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(3).getConf2()));
+					for (int i = (lista.size() - 1); i >= 0; i--) {
+						if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
+								&& (lista.get(i).getText().equals("Escreva algo...")
+										|| lista.get(i).getText().equals("Crie uma publicação aberta…"))) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+								break;
+							}
+						}
+					}
+
+					Thread.sleep(5000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getTituloEnquete(), act, "");
+
+					Thread.sleep(5000);
+					driver.findElement(By.cssSelector("label[aria-label=\"Opção 1\"]")).click();
+					Thread.sleep(5000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_1(), act, "");
+
+					Thread.sleep(5000);
+					driver.findElement(By.cssSelector("label[aria-label=\"Opção 2\"]")).click();
+					Thread.sleep(5000);
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_2(), act, "");
+
+					if (!m.get(o).getConteudoEnquete_3().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 3\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_3(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_4().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 4\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_4(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_5().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 5\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_5(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_6().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 6\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_6(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_7().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 7\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_7(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_8().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 8\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_8(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_9().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 9\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_9(), act, "");
+					}
+
+					if (!m.get(o).getConteudoEnquete_10().isEmpty()) {
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("div[aria-label=\"Adicionar opção\"]")).click();
+						Thread.sleep(5000);
+						driver.findElement(By.cssSelector("label[aria-label=\"Opção 10\"]")).click();
+						Thread.sleep(5000);
+						br.com.legnu_propagar.util.Disparo.sendKeys(m.get(o).getConteudoEnquete_10(), act, "");
+					}
+
+					Thread.sleep(5000);
+					driver.findElement(By.cssSelector("div[aria-label=\"Opções de enquete\"]")).click();
+
+					lista = driver.findElements(By.cssSelector("span"));
+
+					for (int i = (lista.size() - 1); i >= 0; i--) {
+						if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()
+								&& (lista.get(i).getText().equals("Permitir que qualquer pessoa adicione opções"))) {
+							if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+								break;
+							}
+						}
+					}
+					Thread.sleep(5000);
+
+					if (!m.get(o).isVariasRespostas()) {
+						lista = driver.findElements(By.cssSelector("span"));
+
+						for (int i = (lista.size() - 1); i >= 0; i--) {
+							if (lista.get(i).isDisplayed() && lista.get(i).isEnabled() && (lista.get(i).getText()
+									.equals("Permitir que as pessoas escolham várias respostas"))) {
+								if (br.com.legnu_propagar.util.Disparo.Clicavel(driver, lista.get(i))) {
+									break;
+								}
+							}
+						}
+						Thread.sleep(5000);
+					}
+
+					driver.findElement(By.cssSelector("div[aria-label='Publicar']")).click();
+
+					Thread.sleep(20000);
+				}
 
 			}
 		} catch (Exception e) {
@@ -857,7 +1048,7 @@ public class envio {
 					}
 
 					Thread.sleep(Integer.parseInt("3000"));
-					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act,"");
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudo(), act, "");
 					Thread.sleep(Integer.parseInt("3000"));
 					act.sendKeys(Keys.ENTER).perform();
 					Thread.sleep(Integer.parseInt("3000"));
@@ -895,19 +1086,19 @@ public class envio {
 					}
 
 					Thread.sleep(Integer.parseInt("3000"));
-					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoArquivo(), act,"");
+					br.com.legnu_propagar.util.Disparo.sendKeys(m.get(i).getConteudoArquivo(), act, "");
 					Thread.sleep(Integer.parseInt("3000"));
 					act.sendKeys(Keys.ENTER).perform();
 				}
 
 			}
-			
+
 			Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(4).getConf2()));
 
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 		return true;
 	}
 

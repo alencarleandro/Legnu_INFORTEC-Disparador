@@ -1,0 +1,14 @@
+-p
+"D:\\Projetos\\Java\\javafx-sdk-21.0.2_Windows\\lib"
+--add-modules
+javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web
+--add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED
+--add-exports
+javafx.base/com.sun.javafx.event=ALL-UNNAMED
+-Dfile.encoding=UTF-8
+-Dstdout.encoding=UTF-8
+-Dstderr.encoding=UTF-8
+-classpath
+"D:\\Projetos\\Java\\Eclipse\\LeGnu_Propagar\\bin"
+-XX:+ShowCodeDetailsInExceptionMessages
+br.com.legnu_propagar.main.Main

@@ -1,0 +1,657 @@
+package br.com.legnu_propagar.util;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.com.legnu_propagar.dao.DaoClientes;
+import br.com.legnu_propagar.dao.DaoConfiguracao;
+import br.com.legnu_propagar.dao.DaoGrupos;
+import br.com.legnu_propagar.dao.DaoRotina;
+import br.com.legnu_propagar.model.Mensagens;
+import br.com.legnu_propagar.model.Rotina_de_Disparo;
+
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+
+public class Disparo {
+
+	private static WebElement Aux;
+
+	/***
+	 * Modos de Disparo
+	 *******************************************************************************************************************************************************************************************************************/
+
+	/*
+	 * public static void iniciarMensager(Actions act, WebDriver driver, String
+	 * nome, boolean grupo, List<Mensagens> m, Integer id) {
+	 * 
+	 * driver.get("https://www.facebook.com/");
+	 * Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf1()
+	 * ));
+	 * 
+	 * for (int i = 0; aux < tbExibicao.getRowCount(); i++) {
+	 * pesquisarNomeFacebook();
+	 * 
+	 * if (txtAux.equals("")) { mensagemDisparoFacebook(); }
+	 * 
+	 * aux++; }
+	 * 
+	 * js = (JavascriptExecutor) driver;
+	 * 
+	 * if (rbCliente.isSelected()) {
+	 * driver.get("https://www.facebook.com/messages");
+	 * Thread.sleep(Integer.parseInt(confVar8));
+	 * driver.findElement(By.cssSelector(confVar2)).click();
+	 * Thread.sleep(Integer.parseInt(confSleepPesquisa));
+	 * act.sendKeys(tbExibicao.getModel().getValueAt(aux, 1).toString()).perform();
+	 * Thread.sleep(Integer.parseInt(confSleepCatch));
+	 * 
+	 * List<WebElement> lista = driver.findElements(By.cssSelector(confVar9));
+	 * 
+	 * txtAux = "";
+	 * 
+	 * for (int i = 0; i <= lista.size(); i++) { if (i == lista.size()) { txtAux =
+	 * "Não Achou"; ultimoEnvio(); break; }
+	 * 
+	 * if (tbExibicao.getModel().getValueAt(aux,
+	 * 1).toString().equals(lista.get(i).getText())) { lista.get(i).click(); txtAux
+	 * = ""; break;
+	 * 
+	 * } }
+	 * 
+	 * } else { driver.get("https://www.facebook.com/groups");
+	 * Thread.sleep(Integer.parseInt(confVar8));
+	 * driver.findElement(By.cssSelector(confPesquisa)).click();
+	 * Thread.sleep(Integer.parseInt(confSleepPesquisa));
+	 * act.sendKeys(tbExibicao.getModel().getValueAt(aux, 1).toString()).perform();
+	 * Thread.sleep(1000); act.sendKeys(Keys.ENTER).perform();
+	 * Thread.sleep(Integer.parseInt(confSleepCatch));
+	 * 
+	 * List<WebElement> lista = driver.findElements(By.cssSelector(confVar9));
+	 * 
+	 * txtAux = "";
+	 * 
+	 * for (int i = 0; i <= lista.size(); i++) { if (i == lista.size()) { txtAux =
+	 * "Não Achou"; ultimoEnvio(); break; }
+	 * 
+	 * if (tbExibicao.getModel().getValueAt(aux,
+	 * 1).toString().equals(lista.get(i).getText())) { lista.get(i).click(); txtAux
+	 * = ""; break;
+	 * 
+	 * } }
+	 * 
+	 * }
+	 * 
+	 * Thread.sleep(5000); js = (JavascriptExecutor) driver; Robot robot = new
+	 * Robot();
+	 * 
+	 * for (int o = 0; o < tbEnvioMensagem.getRowCount(); o++) { contagemMensagem =
+	 * o; if (rbGrupo.isSelected()) {
+	 * 
+	 * List<WebElement> lista = driver.findElements(By.cssSelector(confMidiaClick));
+	 * 
+	 * for (int i = 0; i <= lista.size(); i++) { if (i == lista.size()) {
+	 * ultimoEnvio(); break; }
+	 * 
+	 * if (lista.get(i).getText().equals("Escreva algo...")) { lista.get(i).click();
+	 * i = 999999; } else if
+	 * (lista.get(i).getText().equals("Crie uma publicação aberta…")) {
+	 * lista.get(i).click(); i = 999999; } }
+	 * 
+	 * Thread.sleep(5000);
+	 * 
+	 * lista = driver.findElements(By.cssSelector(confVar10));
+	 * 
+	 * for (int i = 0; i <= lista.size(); i++) { if (i == lista.size()) {
+	 * ultimoEnvio(); break; }
+	 * 
+	 * if (lista.get(i).getText().equals("Escreva algo...")) { lista.get(i).click();
+	 * i = 999999; } else if
+	 * (lista.get(i).getText().equals("Crie uma publicação aberta…")) {
+	 * lista.get(i).click(); i = 999999; } }
+	 * 
+	 * Thread.sleep(Integer.parseInt(confSleepMensagens));
+	 * robot.delay(Integer.parseInt(confSleepMensagens));
+	 * sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 0).toString());
+	 * 
+	 * Thread.sleep(5000);
+	 * 
+	 * if (tbEnvioMensagem.getModel().getValueAt(o, 1).toString().isBlank() ==
+	 * false) { if (existe(confVar4) == false) {
+	 * driver.findElement(By.cssSelector("div[aria-label=\"Foto/vídeo\"]")).click();
+	 * }
+	 * 
+	 * driver.findElement(By.cssSelector(confVar4))
+	 * .sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 1).toString());
+	 * Thread.sleep(5000); }
+	 * 
+	 * Thread.sleep(Integer.parseInt(confSleepSend));
+	 * 
+	 * lista = driver.findElements(By.cssSelector(confSend)); lista.get(lista.size()
+	 * - 1).click();
+	 * 
+	 * Thread.sleep(Integer.parseInt(confVar8));
+	 * 
+	 * } else { Thread.sleep(5000); if (tbEnvioMensagem.getModel().getValueAt(o,
+	 * 1).toString().isBlank() == false) {
+	 * driver.findElement(By.cssSelector(confVar3))
+	 * .sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 1).toString());
+	 * Thread.sleep(3000); driver.findElement(By.cssSelector(confVar1)).click();
+	 * Thread.sleep(Integer.parseInt(confSleepMensagens));
+	 * sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 0).toString());
+	 * Thread.sleep(Integer.parseInt(confSleepSend));
+	 * act.sendKeys(Keys.ENTER).perform();
+	 * Thread.sleep(Integer.parseInt(confSleepFinish)); } else if
+	 * (tbEnvioMensagem.getModel().getValueAt(o, 1).toString().isBlank() == true) {
+	 * driver.findElement(By.cssSelector(confVar1)).click();
+	 * Thread.sleep(Integer.parseInt(confSleepMensagens));
+	 * sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 0).toString());
+	 * Thread.sleep(Integer.parseInt(confSleepSend));
+	 * act.sendKeys(Keys.ENTER).perform();
+	 * Thread.sleep(Integer.parseInt(confSleepFinish)); }
+	 * 
+	 * if (tbEnvioMensagem.getModel().getValueAt(o, 2) != null) { if
+	 * (tbEnvioMensagem.getModel().getValueAt(o, 2).toString().isBlank() == false) {
+	 * driver.findElement(By.cssSelector(confVar3))
+	 * .sendKeys(tbEnvioMensagem.getModel().getValueAt(o, 2).toString());
+	 * Thread.sleep(Integer.parseInt(confSleepSend));
+	 * act.sendKeys(Keys.ENTER).perform();
+	 * Thread.sleep(Integer.parseInt(confSleepFinish)); } } } }
+	 * 
+	 * txtPriSleepInicio.setText("300000"); txtPriSleepPesquisa.setText("3000");
+	 * txtPriPesquisa.setText("input[aria-label='Pesquisar grupos']");
+	 * txtPriSleepCatch.setText("3000");
+	 * txtPriMidiaClick.setText("div[role='button']");
+	 * txtPriSleepMensagens.setText("3000"); txtPriMensagem.setText("");
+	 * txtPriSleepSend.setText("5000");
+	 * txtPriSend.setText("div[aria-label='Publicar']");
+	 * txtPriSleepFinish.setText("3000");
+	 * 
+	 * txtVar1.setText("div[aria-label='Mensagem']");
+	 * txtVar2.setText("input[aria-label='Pesquisar no Messenger']");
+	 * txtVar3.setText("input[type='file']"); txtVar4.setText(
+	 * "input[accept=\"image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv\"]"
+	 * ); txtVar5.setText("7000"); txtVar6.
+	 * setText("document.querySelector(\"p.xat24cr > span:nth-child(1)\").firstChild.data = '"
+	 * ); txtVar7.setText("9"); txtVar8.setText("10000");
+	 * txtVar9.setText("a[role='presentation']");
+	 * txtVar10.setText("div[role='presentation']");
+	 * 
+	 * ultimoEnvio();
+	 * 
+	 * }
+	 */
+
+	public static void iniciarWhatsapp(Actions act, WebDriver driver, String nome, boolean grupo, List<Mensagens> m,
+			Integer id, Rotina_de_Disparo ID_Rotina) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		/* Pesquisa */
+		try {
+
+			Robot robot = new Robot();
+			for (int i = 0; i < 100; i++) {
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.delay(1);
+			}
+			robot.keyRelease(KeyEvent.VK_TAB);
+
+			Thread.sleep(5000);
+
+			if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf3()) && !DaoConfiguracao.pegarConfiguracao(2).getConf3().isEmpty()) {
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf3()))).click();
+			} else if (existe(driver, "div[title='Caixa de texto de pesquisa']")) {
+				Aux = driver.findElement(By.cssSelector("div[title='Caixa de texto de pesquisa']"));
+				wait.until(ExpectedConditions.elementToBeClickable(Aux.findElement(By.xpath("parent::*[1]")).findElement(By.xpath("parent::*[1]")).findElement(By.xpath("parent::*[1]")))).click();
+			} else if (existe(driver, "button[aria-label=\"Pesquisar ou começar uma nova conversa\"]")) {
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[aria-label='Pesquisar ou começar uma nova conversa']"))).click();
+			}
+
+			Thread.sleep(500);
+
+			for (int n = 0; n <= 100; n++) {
+				Thread.sleep(1);
+				act.sendKeys(Keys.DELETE).perform();
+			}
+
+			for (int n = 0; n <= 100; n++) {
+				Thread.sleep(1);
+				act.sendKeys(Keys.BACK_SPACE).perform();
+			}
+
+			if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf3())	&& !DaoConfiguracao.pegarConfiguracao(2).getConf3().isEmpty()) {
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf3()))).click();
+			} else if (existe(driver, "div[title='Caixa de texto de pesquisa']")) {
+				Aux = driver.findElement(By.cssSelector("div[title='Caixa de texto de pesquisa']"));
+				wait.until(ExpectedConditions.elementToBeClickable(Aux.findElement(By.xpath("parent::*[1]")).findElement(By.xpath("parent::*[1]")).findElement(By.xpath("parent::*[1]")))).click();
+			} else if (existe(driver, "button[aria-label=\"Pesquisar ou começar uma nova conversa\"]")) {
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[aria-label='Pesquisar ou começar uma nova conversa']"))).click();
+			}
+
+			Thread.sleep(500);
+			sendKeys(".", act);
+
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\n\nClickado-Pesquisa Sucesso!"));
+
+		} catch (Exception e) {
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nClickado-Pesquisa Falhou!\n\n" + e));
+			return;
+		}
+
+		/* Pesquisa - escrita */
+		try {
+			Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf2()) * 1000);
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("document.querySelector('[title=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"	+ nome + "';");
+			js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
+
+			Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf4()) * 1000);
+			
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nPesquisado com Sucesso!"));
+		} catch (Exception e) {
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nPesquisado Falhou!\n\n" + e));
+
+			return;
+		}
+
+		/* Validação */
+		try {
+			if (grupo == true) {
+				List<WebElement> lista = driver.findElements(By.cssSelector("span[title='" + nome + "']"));
+				int vezes = 0;
+				boolean certo = false;
+
+				for (int i = 0; i < lista.size(); i++) {
+					if (i == lista.size()) {
+						if (vezes <= lista.size()) {
+							i = 0;
+							vezes = vezes + 1;
+						} else {
+							return;
+						}
+					}
+
+					if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()) {
+						if (Clicavel(driver, lista.get(i))) {
+							act.keyDown(Keys.PAGE_UP).perform();
+							Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf16()) * 1000);
+							act.keyUp(Keys.PAGE_UP).perform();
+
+							Thread.sleep(3000);
+
+							if (existe(driver, "span[aria-label='Você:']")) {
+
+							} else {
+								certo = true;
+								break;
+							}
+						}
+					}
+
+				}
+
+				if (certo) {
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf6()) * 1000);
+					DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nValidado com Sucesso!"));
+					UltimoEnvio(grupo, id, ID_Rotina);
+					Enviar(driver, m, act, ID_Rotina);
+
+				}
+
+			} else {
+
+				List<WebElement> lista = driver.findElements(By.cssSelector("span[title='" + nome + "']"));
+
+				for (int i = 0; i < lista.size(); i++) {
+					if (lista.get(i).isDisplayed() && lista.get(i).isEnabled()) {
+						if (Clicavel(driver, lista.get(i))) {
+							i = 100000000;
+						}
+					}
+				}
+
+				Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf6()) * 1000);
+				DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nValidado com Sucesso!"));
+				UltimoEnvio(grupo, id, ID_Rotina);
+				Enviar(driver, m, act, ID_Rotina);
+
+			}
+
+		} catch (Exception e) {
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nValidado Falhou!\n\n" + e));
+			return;
+		}
+
+	}
+
+	public static void UltimoEnvio(boolean grupo, Integer id, Rotina_de_Disparo ID_Rotina) {
+		/* Ultimo Envio */
+		try {
+			if (grupo == true) {
+				DaoGrupos.AtualizarUltimoEnvio(id);
+			} else {
+				DaoClientes.AtualizarUltimoEnvio(id);
+			}
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nUltimoEnvio com Sucesso!"));
+		} catch (Exception e) {
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nUltimoEnvio Falhou!\n\n" + e));
+			return;
+		}
+	}
+
+	public static void Enviar(WebDriver driver, List<Mensagens> m, Actions act, Rotina_de_Disparo ID_Rotina) {
+		/* Envio de Mensagens */
+		try {
+			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			
+			for (int i = 0; i < m.size(); i++) {
+				if (existe(driver, "div[data-animate-modal-popup='true']") == true) {
+					driver.findElement(By.cssSelector("button")).click();
+					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+				}
+
+				if (!m.get(i).getMidia().isEmpty()) {
+
+					if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf5())	&& !DaoConfiguracao.pegarConfiguracao(2).getConf5().isEmpty()) {
+
+						driver.findElement(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf5())).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+
+					} else if (existe(driver, "div[aria-label='Anexar']") == true) {
+
+						driver.findElement(By.cssSelector("div[aria-label='Anexar']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+
+					} else if (existe(driver, "div[aria-label='Clip']") == true) {
+						driver.findElement(By.cssSelector("div[aria-label='Clip']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+					} else if (existe(driver, "div[aria-label='Attach']") == true) {
+						driver.findElement(By.cssSelector("div[aria-label='Attach']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+					} else if (existe(driver, "div[aria-label='anexar']") == true) {
+						driver.findElement(By.cssSelector("div[aria-label='anexar']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+					} else if (existe(driver, "div[aria-label='clip']") == true) {
+						driver.findElement(By.cssSelector("div[aria-label='clip']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(""))).click();
+					} else if (existe(driver, "div[aria-label='attach']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='attach']"))).click();
+					}
+
+					Thread.sleep(1000);
+					driver.findElement(By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")).sendKeys(m.get(i).getMidia());
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf14()) * 1000);
+					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[title='Digite uma mensagem']"))).click();
+					Thread.sleep(3000);
+					sendKeys(m.get(i).getConteudo(), act);
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf8()) * 1000);
+					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[data-icon='send']"))).click();
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf17()) * 1000);
+
+				} else {
+					Thread.sleep(1000);
+
+					if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf7())	&& !DaoConfiguracao.pegarConfiguracao(2).getConf7().isEmpty()) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf7()))).click();
+					} else if (existe(driver, "div[title='Digite uma mensagem']")) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[title='Digite uma mensagem']"))).click();
+					}
+
+					Thread.sleep(3000);
+					sendKeys(m.get(i).getConteudo(), act);
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf8()) * 1000);
+					act.sendKeys(Keys.ENTER).perform();
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf17()) * 1000);
+				}
+
+				if (!m.get(i).getArquivo().isBlank()) {
+
+					if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf5())	&& !DaoConfiguracao.pegarConfiguracao(2).getConf5().isEmpty()) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf5()))).click();
+					} else if (existe(driver, "div[aria-label='Anexar']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Anexar']"))).click();
+					} else if (existe(driver, "div[aria-label='Clip']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Clip']"))).click();
+					} else if (existe(driver, "div[aria-label='Attach']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Attach']"))).click();
+					} else if (existe(driver, "div[aria-label='anexar']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='anexar']"))).click();
+					} else if (existe(driver, "div[aria-label='clip']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='clip']"))).click();
+					} else if (existe(driver, "div[aria-label='attach']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='attach']"))).click();
+					}
+
+					Thread.sleep(1000);
+					driver.findElement(By.cssSelector("input[accept='image/*,video/mp4,video/3gpp,video/quicktime']")).sendKeys(m.get(i).getArquivo());
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf14()) * 1000);
+
+					if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf7()) && !DaoConfiguracao.pegarConfiguracao(2).getConf7().isEmpty()) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf7()))).click();
+					} else if (existe(driver, "div[title='Digite uma mensagem']")) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[title='Digite uma mensagem']"))).click();
+					}
+					Thread.sleep(3000);
+					sendKeys(m.get(i).getConteudoArquivo(), act);
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf8()) * 1000);
+					wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[data-icon='send']"))).click();
+					Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf17()) * 1000);
+				}
+
+				if (!m.get(i).getTituloEnquete().isBlank() && !m.get(i).getConteudoEnquete_1().isBlank() && !m.get(i).getConteudoEnquete_2().isBlank()) {
+
+					if (existe(driver, DaoConfiguracao.pegarConfiguracao(2).getConf5()) && !DaoConfiguracao.pegarConfiguracao(2).getConf5().isEmpty()) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf5()))).click();
+					} else if (existe(driver, "div[aria-label='Anexar']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Anexar']"))).click();
+					} else if (existe(driver, "div[aria-label='Clip']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Clip']"))).click();
+					} else if (existe(driver, "div[aria-label='Attach']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='Attach']"))).click();
+					} else if (existe(driver, "div[aria-label='anexar']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='anexar']"))).click();
+					} else if (existe(driver, "div[aria-label='clip']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='clip']"))).click();
+					} else if (existe(driver, "div[aria-label='attach']") == true) {
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='attach']"))).click();
+					}
+
+					List<WebElement> lista = driver.findElements(By.cssSelector("li"));
+
+					for (int o = 0; o < lista.size(); o++) {
+						if (lista.get(o).getText().equals("Enquete")) {
+							wait.until(ExpectedConditions.elementToBeClickable(lista.get(o))).click();
+							o = 10000000;
+						}
+					}
+
+					Thread.sleep(8000);
+
+					if (existe(driver, "[style='padding-top: 8px; padding-bottom: 5px;' ]")) {
+
+						List<WebElement> opcoes = driver.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+
+						wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(0))).click();
+						sendKeys(m.get(i).getTituloEnquete(), act);
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(1))).click();
+						sendKeys(m.get(i).getConteudoEnquete_1(), act);
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(2))).click();
+						sendKeys(m.get(i).getConteudoEnquete_2(), act);
+
+						if (!m.get(i).getConteudoEnquete_3().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(3))).click();
+							sendKeys(m.get(i).getConteudoEnquete_3(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_4().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(4))).click();
+							sendKeys(m.get(i).getConteudoEnquete_4(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_5().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(5))).click();
+							sendKeys(m.get(i).getConteudoEnquete_5(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_6().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(6))).click();
+							sendKeys(m.get(i).getConteudoEnquete_6(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_7().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(7))).click();
+							sendKeys(m.get(i).getConteudoEnquete_7(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_8().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(8))).click();
+							sendKeys(m.get(i).getConteudoEnquete_8(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_9().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(9))).click();
+							sendKeys(m.get(i).getConteudoEnquete_9(), act);
+						}
+
+						if (!m.get(i).getConteudoEnquete_10().isEmpty()) {
+							opcoes = driver
+									.findElements(By.cssSelector("[style='padding-top: 8px; padding-bottom: 5px;' ]"));
+							Thread.sleep(3000);
+							wait.until(ExpectedConditions.elementToBeClickable(opcoes.get(10))).click();
+							sendKeys(m.get(i).getConteudoEnquete_10(), act);
+						}
+
+						if (m.get(i).isVariasRespostas()) {
+
+						} else {
+							wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("input[aria-label='Ativar ou desativar configurações']")).findElement(By.xpath("parent::*[1]")))).click();
+						}
+
+						Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf8()) * 1000);
+						driver.findElement(By.cssSelector("span[data-icon='send']")).click();
+						wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(DaoConfiguracao.pegarConfiguracao(2).getConf17()))).click();
+
+					}
+				}
+			}
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nEnvio com Sucesso!"));
+		} catch (Exception e) {
+			DaoRotina.editarRotina(ID_Rotina.getId(), (ID_Rotina.getRotina() + "\nEnvio Falhou!\n\n" + e));
+
+		}
+	}
+
+	/***
+	 * Ferramentas
+	 *******************************************************************************************************************************************************************************************************************/
+
+	public static boolean existe(WebDriver driver, String Path) {
+		try {
+			driver.findElement(By.cssSelector(Path));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public static boolean Clicavel(WebDriver driver, WebElement element) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public static void sendKeys(String keys, Actions act) {
+		try {
+			for (int i = 0; i < keys.length(); i++) {
+				if (String.valueOf(keys.charAt(i)).equals("\n")) {
+					act.keyDown(Keys.SHIFT).perform();
+					act.sendKeys(Keys.ENTER).perform();
+					act.keyUp(Keys.SHIFT).perform();
+				} else {
+					act.sendKeys(String.valueOf(keys.charAt(i))).perform();
+				}
+
+			}
+		} catch (Exception e) {
+		}
+	}
+
+	/***
+	 * Funçoes Whatsapp
+	 *******************************************************************************************************************************************************************************************************************/
+
+	public static void descerScroll(WebDriver driver) {
+		try {
+
+			int forScroll;
+			Thread.sleep(Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf1()) * 60000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			for (forScroll = 1; forScroll <= 400000; forScroll = forScroll
+					+ Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf13())) {
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0," + forScroll + ");");
+			}
+
+			for (forScroll = 400000; forScroll >= 0; forScroll = forScroll
+					- Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf13())) {
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0," + forScroll + ");");
+			}
+
+			for (forScroll = 1; forScroll <= 500000; forScroll = forScroll
+					+ Integer.parseInt(DaoConfiguracao.pegarConfiguracao(2).getConf13())) {
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0," + forScroll + ");");
+			}
+
+		} catch (org.openqa.selenium.JavascriptException e) {
+			JOptionPane.showMessageDialog(null, "Scroll não encontrado, aumente o tempo (SleepInicio)");
+			System.out.println("Scroll: " + e);
+			driver.quit();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Decida error Linha: " + e.getStackTrace() + "\n\n" + e);
+			System.out.println("Scroll: " + e);
+		}
+	}
+
+}

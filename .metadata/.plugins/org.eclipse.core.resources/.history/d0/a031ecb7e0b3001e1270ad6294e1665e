@@ -1,0 +1,17 @@
+package br.com.legnu_propagar.model;
+
+public class teste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Conexao conexao = new Conexao();
+		
+		if(conexao != null) {
+			System.out.println("Certo");
+		}else{
+			System.out.println("Errado");
+		}
+	}
+
+}

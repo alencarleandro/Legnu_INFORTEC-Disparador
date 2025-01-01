@@ -1,0 +1,10 @@
+--module-path
+"D:\\Projetos\\Java\\javafx-sdk-21.0.2_Windows\\lib"
+--add-modules
+javafx.controls,javafx.fxml
+-Dfile.encoding=UTF-8
+-Dstdout.encoding=UTF-8
+-Dstderr.encoding=UTF-8
+-classpath
+"D:\\Projetos\\Java\\Eclipse\\LeGnu_Propagar\\bin"
+br.com.legnu_propagar.main.Main

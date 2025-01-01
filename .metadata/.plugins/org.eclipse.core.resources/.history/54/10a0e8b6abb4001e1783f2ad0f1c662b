@@ -1,0 +1,5 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #D92A1A ,#D9665B, #367fbf, #367fbf, #8BB4D9 , #f2f2f2);
+}

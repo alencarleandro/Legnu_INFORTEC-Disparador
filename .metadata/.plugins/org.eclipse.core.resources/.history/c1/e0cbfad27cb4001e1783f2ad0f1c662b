@@ -1,0 +1,7 @@
+module teste {
+	requires javafx.controls;
+	requires java.sql;
+	requires javafx.fxml;
+	
+	opens br.com.legnu_propagar.controller to javafx.graphics, javafx.fxml;
+}
