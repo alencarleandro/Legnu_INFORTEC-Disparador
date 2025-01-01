@@ -1,8 +1,11 @@
 package br.com.legnu_propagar.main;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 
 import br.com.legnu_propagar.dao.Conexao;
+=======
+>>>>>>> 3c43b08802dd216bdc062be71ba19183c94f1785
 import br.com.legnu_propagar.dao.DaoCategoria;
 import br.com.legnu_propagar.dao.DaoClientes;
 import br.com.legnu_propagar.dao.DaoConfiguracao;
@@ -74,8 +77,22 @@ public class Main extends Application {
 			Parent fxml = null;
 
 			switch (src) {
+<<<<<<< HEAD
 			case LOGIN:
 				fxml = FXMLLoader.load(Main.class.getResource("/br/com/legnu_propagar/view/TelaLogin.fxml"));
+=======
+			case INTRO:
+				fxml = FXMLLoader.load(Main.class.getResource("/br/com/legnu_propagar/view/splash/legnu.fxml"));
+				break;
+			case PRIMEIRO_LOGIN:
+				fxml = FXMLLoader.load(Main.class.getResource("/br/com/legnu_propagar/view/card/primeiroLogin.fxml"));
+				break;
+			case PRE_LOGIN:
+				fxml = FXMLLoader.load(Main.class.getResource("/br/com/legnu_propagar/view/card/preLogin.fxml"));
+				break;
+			case LOGIN:
+				fxml = FXMLLoader.load(Main.class.getResource("/br/com/legnu_propagar/view/tela/login.fxml"));
+>>>>>>> 3c43b08802dd216bdc062be71ba19183c94f1785
 				stage.setTitle("Legnu's Propagar - Tela Login");
 				break;
 			case PRINCIPAL:

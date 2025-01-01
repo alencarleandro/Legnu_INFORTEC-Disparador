@@ -101,9 +101,21 @@ public class Whatsapp {
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			
+<<<<<<< HEAD
 			if (br.com.legnu_propagar.util.Disparo.existe(driver, "p.selectable-text")) {
 				js.executeScript(
 						"document.querySelector(\"span.selectable-text\").childNodes[0].data = '"
+=======
+			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[title='Caixa de texto de pesquisa']")) {
+				js.executeScript(
+						"document.querySelector('[title=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"
+								+ nome + "';");
+				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
+				
+			} else if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Caixa de texto de pesquisa']")) {
+				js.executeScript(
+						"document.querySelector('[aria-label=\"Caixa de texto de pesquisa\"]').children[0].children[0].firstChild.data = '"
+>>>>>>> 3c43b08802dd216bdc062be71ba19183c94f1785
 								+ nome + "';");
 				js.executeScript("document.querySelector('[id=\"pane-side\"]').scroll(0,0);");
 			} 
@@ -178,9 +190,15 @@ public class Whatsapp {
 	public static void caixaDePesquisa(WebDriver driver) throws InterruptedException {			
 			Thread.sleep(3000);
 
+<<<<<<< HEAD
 			if (br.com.legnu_propagar.util.Disparo.existe(driver, "p.selectable-text")) {
 				if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
 						driver.findElement(By.cssSelector("p.selectable-text")))) {
+=======
+			if (br.com.legnu_propagar.util.Disparo.existe(driver, "div[aria-label='Caixa de texto de pesquisa']")) {
+				if (br.com.legnu_propagar.util.Disparo.Clicavel(driver,
+						driver.findElement(By.cssSelector("div[aria-label='Caixa de texto de pesquisa']")))) {
+>>>>>>> 3c43b08802dd216bdc062be71ba19183c94f1785
 				}
 			}
 
